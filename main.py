@@ -5,7 +5,7 @@ import datetime
 from pydantic import BaseModel, Field
 
 from ms import app
-from ms.functions import get_model_response
+# from ms.functions import get_model_response
 
 model_name = "webpage tags"
 version = "v1.0.0"
@@ -53,8 +53,9 @@ async def service_health():
     }
 
 
-@app.post('/predict', response_model=Output)
+@app.get('/predict', response_model=Output)
 async def model_predict(input: Input):
     """Predict with input"""
-    response = get_model_response(input)
-    return response
+    return '111'
+    # response = get_model_response(input)
+    # return response
